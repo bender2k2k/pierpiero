@@ -1,0 +1,9 @@
+langchain
+chromadb
+beautifulsoup4
+requests
+fastapi
+uvicorn[standard]
+pydantic
+sentence-transformers
+openai
