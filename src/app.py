@@ -5,7 +5,6 @@ from __future__ import annotations
 from fastapi import FastAPI, HTTPException
 from fastapi.responses import HTMLResponse
 from textwrap import dedent
-
 from pydantic import BaseModel
 from langchain.chains import RetrievalQA
 from langchain.embeddings import HuggingFaceEmbeddings
@@ -26,7 +25,6 @@ def startup() -> None:
     vectordb = Chroma(persist_directory=CHROMA_DIR, embedding_function=embeddings)
     llm = OpenAI(temperature=0)
     qa_chain = RetrievalQA.from_chain_type(llm, retriever=vectordb.as_retriever())
-
 
 @app.get("/", response_class=HTMLResponse)
 def index() -> str:
