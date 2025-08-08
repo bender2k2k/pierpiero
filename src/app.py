@@ -59,6 +59,7 @@ def index() -> str:
         """
     )
 
+
 @app.post("/query")
 def query(data: Query) -> dict[str, str]:
     try:

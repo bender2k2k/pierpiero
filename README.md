@@ -4,7 +4,9 @@ Applicazione RAG per la documentazione Confluent Kafka.
 
 ## Struttura
 
+
 - `src/download_docs.py` – scarica la documentazione a partire dall'overview seguendo i link interni.
+
 - `src/ingest.py` – estrae il testo e popola un database vettoriale Chroma.
 - `src/app.py` – espone un endpoint FastAPI per rispondere alle domande usando RAG.
 - `requirements.txt` – dipendenze Python.

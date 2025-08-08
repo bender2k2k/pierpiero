@@ -1,3 +1,4 @@
+
 """Download Confluent Kafka documentation starting from the overview page.
 
 This script crawls the Confluent Kafka documentation beginning at
@@ -8,6 +9,7 @@ vector database for Retrieval-Augmented Generation (RAG).
 """
 
 from __future__ import annotations
+
 
 from collections import deque
 import os
@@ -28,7 +30,6 @@ def fetch(url: str) -> str:
     response = requests.get(url, timeout=30)
     response.raise_for_status()
     return response.text
-
 
 def save_content(content: str, url: str) -> None:
     """Save *content* under RAW_DIR mirroring the remote path structure."""
