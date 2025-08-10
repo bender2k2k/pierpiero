@@ -24,7 +24,7 @@ Applicazione RAG per la documentazione Confluent Kafka.
 
 ## Struttura
 
-- `src/download_docs.py` – scarica la documentazione a partire dall'overview seguendo i link interni.
+- `src/download_docs.py` – scarica la documentazione a partire dall'overview seguendo i link interni, loggando su schermo e su `data/download.log`.
 - `src/ingest.py` – estrae il testo e popola un database vettoriale Chroma.
 - `src/app.py` – espone un endpoint FastAPI per rispondere alle domande usando RAG.
 - `requirements.txt` – dipendenze Python.
@@ -33,7 +33,7 @@ Applicazione RAG per la documentazione Confluent Kafka.
 ## Utilizzo
 
 1. Installare le dipendenze: `pip install -r requirements.txt`.
-2. Scaricare la documentazione: `python src/download_docs.py`.
+2. Scaricare la documentazione: `python src/download_docs.py`. La profondità di esplorazione può essere impostata con `MAX_DEPTH` (default `3`) e il progresso è visibile anche nel file `data/download.log`.
 3. Ingerire i documenti: `python src/ingest.py`.
 4. Avviare l'API: `uvicorn src.app:app --reload`, interrogare `POST /query` con `{ "question": "..." }`
    oppure aprire `GET /` per utilizzare una semplice interfaccia web.
