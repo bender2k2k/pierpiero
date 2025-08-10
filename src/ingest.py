@@ -1,7 +1,6 @@
 """Ingest downloaded documentation into a Chroma vector database."""
 
 from __future__ import annotations
-
 from pathlib import Path
 from typing import List
 
