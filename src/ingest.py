@@ -1,8 +1,6 @@
 """Ingest downloaded documentation into a Chroma vector database."""
 
 from __future__ import annotations
-
-import glob
 from pathlib import Path
 from typing import List
 
@@ -17,11 +15,11 @@ CHROMA_DIR = Path("data/chroma")
 
 def load_documents() -> List[Document]:
     docs: List[Document] = []
-    for path in glob.glob(str(RAW_DIR / "*.html")):
-        text = Path(path).read_text(encoding="utf-8")
+    for path in RAW_DIR.rglob("*.html"):
+        text = path.read_text(encoding="utf-8")
         soup = BeautifulSoup(text, "html.parser")
         content = soup.get_text(separator=" \n")
-        docs.append(Document(page_content=content, metadata={"source": path}))
+        docs.append(Document(page_content=content, metadata={"source": str(path)}))
     return docs
 
 def main() -> None:
